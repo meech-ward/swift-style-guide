@@ -349,10 +349,29 @@ class TestDatabase : Database {
 
 ## Comments
 
-When they are needed, use comments to explain **why** a particular piece of code does something. Comments must be kept up-to-date or deleted.
+When they are needed, use comments to explain **why** a particular piece of code does something. Do not write comments to explain **what** a particular peice of code does. Your code should be self documenting and tell people what it is doing. Comments must be kept up-to-date or deleted.
 
 Avoid block comments inline with code, as the code should be as self-documenting as possible. *Exception: This does not apply to those comments used to generate documentation.*
 
+**Preferred:**
+
+```swift
+func doSomething() {
+	// Use NSLog instead of print to get a timestamp in the logs
+	NSLog("Done")
+}
+```
+
+**Not Preferred:**
+
+```swift
+func doSomething() {
+	/**
+	 Log the word Done
+	*/
+	NSLog("Done")
+}
+```
 
 ## Classes and Structures
 
