@@ -137,23 +137,6 @@ enum Shape {
 }
 ```
 
-### Prose
-
-When referring to functions in prose (tutorials, books, comments) include the required parameter names from the caller's perspective or `_` for unnamed parameters. Examples:
-
-> Call `convertPointAt(column:row:)` from your own `init` implementation.
->
-> If you call `dateFromString(_:)` make sure that you provide a string with the format "yyyy-MM-dd".
->
-> If you call `timedAction(afterDelay:perform:)` from `viewDidLoad()` remember to provide an adjusted delay value and an action to perform.
->
-> You shouldn't call the data source method `tableView(_:cellForRowAtIndexPath:)` directly.
-
-This is the same as the `#selector` syntax. When in doubt, look at how Xcode lists the method in the jump bar – our style here matches that.
-
-![Methods in Xcode jump bar](screens/xcode-jump-bar.png)
-
-
 ### Class Prefixes
 
 Swift types are automatically namespaced by the module that contains them and you should not add a class prefix such as RW. If two names from different modules collide you can disambiguate by prefixing the type name with the module name. However, only specify the module name when there is possibility for confusion which should be rare.
