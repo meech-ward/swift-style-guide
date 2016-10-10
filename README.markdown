@@ -202,6 +202,7 @@ Use extensions to organize your code into logical blocks of functionality. Each 
 In particular, when adding protocol conformance to a model, prefer adding a separate extension for the protocol methods. This keeps the related methods grouped together with the protocol and can simplify instructions to add a protocol to a class with its associated methods.
 
 **Preferred:**
+
 ```swift
 class MyViewcontroller: UIViewController {
   // class stuff here
@@ -219,6 +220,7 @@ extension MyViewcontroller: UIScrollViewDelegate {
 ```
 
 **Not Preferred:**
+
 ```swift
 class MyViewcontroller: UIViewController, UITableViewDataSource, UIScrollViewDelegate {
   // all methods
@@ -228,6 +230,42 @@ class MyViewcontroller: UIViewController, UITableViewDataSource, UIScrollViewDel
 Since the compiler does not allow you to re-declare protocol conformance in a derived class, it is not always required to replicate the extension groups of the base class. This is especially true if the derived class is a terminal class and a small number of methods are being overriden. When to preserve the extension groups is left to the discretion of the author.
 
 For UIKit view controllers, consider grouping lifecyle, custom accessors, and IBAction in separate class extensions.
+
+**Example:**
+
+```swift
+class ViewController: UIViewController {
+    
+    func doSomething() {
+        print("Done")
+    }
+    
+}
+
+// MARK: - Lifecycle
+extension ViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+}
+
+// MARK: - IBAction
+extension ViewController {
+    
+    @IBAction func someAction(_ sender: UIButton) {
+        doSomething()
+    }
+    
+}
+```
 
 ### Unused Code
 
