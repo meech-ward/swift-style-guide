@@ -149,7 +149,7 @@ let myClass = MyModule.UsefulClass()
 
 ### Selectors
 
-Selectors are Obj-C methods that act as handlers for many Cocoa and Cocoa Touch APIs. Prior to Swift 2.2, they were specified using type unsafe strings. This now causes a compiler warning. The "Fix it" button replaces these strings with the **fully qualified** type safe selector. Often, however, you can use context to shorten the expression. This is the preferred style.
+Selectors are Obj-C methods that act as handlers for many Cocoa and Cocoa Touch APIs. Use context to shorten the expression whever possible. This is the preferred style.
 
 **Preferred:**
 ```swift
