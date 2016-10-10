@@ -46,7 +46,7 @@ Writing Objective-C? Check out our [Objective-C Style Guide](https://github.com/
 * [Golden Path](#golden-path)
   * [Failing Guards](#failing-guards)
 * [Semicolons](#semicolons)
-* [Parenthesis](#parenthesis)
+* [Parentheses](#parentheses)
 * [Copyright Statement](#copyright-statement)
 * [Smiley Face](#smiley-face)
 * [Credits](#credits)
@@ -82,7 +82,7 @@ class app_widgetContainer {
 }
 ```
 
-Abbreviations and and acronyms should generally be avoided. Following the Apple Design Guidelines, abbreviations and initialisms that appear in all uppercase should be uniformly uppercase or lowercase. Examples:
+Abbreviations and acronyms should generally be avoided. Following the [API Design Guidelines](https://swift.org/documentation/api-design-guidelines/#follow-case-conventions), abbreviations and initialisms that appear in all uppercase should be uniformly uppercase or lowercase. Examples:
 
 **Preferred**
 
@@ -132,8 +132,8 @@ Following Apple's API Design Guidelines for Swift 3, use lowerCamelCase for enum
 enum Shape {
   case rectangle
   case square
-  case triangle
-  case circle
+  case rightTriangle
+  case equilateralTriangle
 }
 ```
 
@@ -229,7 +229,7 @@ class MyViewcontroller: UIViewController, UITableViewDataSource, UIScrollViewDel
 
 Since the compiler does not allow you to re-declare protocol conformance in a derived class, it is not always required to replicate the extension groups of the base class. This is especially true if the derived class is a terminal class and a small number of methods are being overriden. When to preserve the extension groups is left to the discretion of the author.
 
-For UIKit view controllers, consider grouping lifecyle, custom accessors, and IBAction in separate class extensions.
+For UIKit view controllers, consider grouping lifecycle, custom accessors, and IBAction in separate class extensions.
 
 **Example:**
 
@@ -604,7 +604,7 @@ radius * Math.pi * 2 // circumference
 **Not Preferred:**
 ```swift
 let e  = 2.718281828459045235360287  // pollutes global namespace
-let pi = 3.141592653589793238462643  
+let pi = 3.141592653589793238462643
 }
 
 radius * pi * 2 // is pi instance data or a global constant?
@@ -873,6 +873,7 @@ while i < attendeeList.count {
   i += 1
 }
 ```
+
 ## Golden Path
 
 When coding with conditionals, the left hand margin of the code should be the "golden" or "happy" path. That is, don't nest `if` statements. Multiple return statements are OK. The `guard` statement is built for this.
@@ -881,8 +882,8 @@ When coding with conditionals, the left hand margin of the code should be the "g
 ```swift
 func computeFFT(context: Context?, inputData: InputData?) throws -> Frequencies {
 
-  guard let context = context else { throw FFTError.NoContext }
-  guard let inputData = inputData else { throw FFTError.NoInputData }
+  guard let context = context else { throw FFTError.noContext }
+  guard let inputData = inputData else { throw FFTError.noInputData }
     
   // use context and input to compute the frequencies
     
@@ -901,12 +902,13 @@ func computeFFT(context: Context?, inputData: InputData?) throws -> Frequencies 
       return frequencies
     }
     else {
-      throw FFTError.NoInputData
+      throw FFTError.noInputData
     }
   }
   else {
-    throw FFTError.NoContext
+    throw FFTError.noContext
   }
+
 }
 ```
 
@@ -960,11 +962,11 @@ let swift = "not a scripting language"
 let swift = "not a scripting language";
 ```
 
-**NOTE**: Swift is very different to JavaScript, where omitting semicolons is [generally considered unsafe](http://stackoverflow.com/questions/444080/do-you-recommend-using-semicolons-after-every-statement-in-javascript)
+**NOTE**: Swift is very different from JavaScript, where omitting semicolons is [generally considered unsafe](http://stackoverflow.com/questions/444080/do-you-recommend-using-semicolons-after-every-statement-in-javascript)
 
-## Parenthesis
+## Parentheses
 
-Parenthesis around conditionals are not required and should be omitted.
+Parentheses around conditionals are not required and should be omitted.
 
 **Preferred:**
 ```swift
@@ -1009,7 +1011,7 @@ file:
 
 ## Smiley Face
 
-Smiley faces are a very prominent style feature of the raywenderlich.com site! It is very important to have the correct smile signifying the immense amount of happiness and excitement for the coding topic. The closing square bracket `]` is used because it represents the largest smile able to be captured using ASCII art. A closing parenthesis `)` creates a half-hearted smile, and thus is not preferred.
+Smiley faces are a very prominent style feature of the raywenderlich.com site! It is very important to have the correct smile signifying the immense amount of happiness and excitement for the coding topic. The closing square bracket `]` is used because it represents the largest smile able to be captured using ASCII art. A closing parentheses `)` creates a half-hearted smile, and thus is not preferred.
 
 **Preferred:**
 ```
