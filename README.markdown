@@ -827,7 +827,7 @@ resource.request().onComplete { [weak self] response in
 
 ## Access Control
 
-Full access control annotation in tutorials can distract from the main topic and is not required. Using `private` appropriately, however, adds clarity and promotes encapsulation. Use `private` as the leading property specifier. The only things that should come before access control are the `static` specifier or attributes such as `@IBAction` and `@IBOutlet`.
+Using `private` appropriately adds clarity and promotes encapsulation. Use `private` as the leading property specifier. The only things that should come before access control are the `static` specifier or attributes such as `@IBAction` and `@IBOutlet`.
 
 **Preferred:**
 ```swift
@@ -891,8 +891,13 @@ When coding with conditionals, the left hand margin of the code should be the "g
 ```swift
 func computeFFT(context: Context?, inputData: InputData?) throws -> Frequencies {
 
-  guard let context = context else { throw FFTError.noContext }
-  guard let inputData = inputData else { throw FFTError.noInputData }
+  guard let context = context else { 
+  		throw FFTError.noContext 
+  }
+  
+  guard let inputData = inputData else {
+  		throw FFTError.noInputData
+  }
     
   // use context and input to compute the frequencies
     
@@ -925,7 +930,9 @@ When multiple optionals are unwrapped either with `guard` or `if let`, minimize 
 
 **Preferred:**
 ```swift
-guard let number1 = number1, number2 = number2, number3 = number3 else { fatalError("impossible") }
+guard let number1 = number1, number2 = number2, number3 = number3 else {
+	fatalError("impossible")
+}
 // do something with numbers
 ```
 
