@@ -1,4 +1,4 @@
-# The Official raywenderlich.com Swift Style Guide.
+# The Official Sam Meech-Ward Swift Style Guide.
 
 This style guide is different from others you may see, because the focus is centered on readability for print and the web. We created this style guide to keep the code in our books, tutorials, and starter kits nice and consistent — even though we have many different authors working on the books.
 
@@ -85,12 +85,14 @@ class app_widgetContainer {
 Abbreviations and and acronyms should generally be avoided. Following the Apple Design Guidelines, abbreviations and initialisms that appear in all uppercase should be uniformly uppercase or lowercase. Examples:
 
 **Preferred**
+
 ```swift
 let urlString: URLString
 let userID: UserID
 ```
 
 **Not Preferred**
+
 ```swift
 let uRLString: UrlString
 let userId: UserId
