@@ -489,7 +489,9 @@ final class Box<T> {
 
 ## Function Declarations
 
-Keep short function declarations on one line including the opening brace:
+Keep all function declarations on one line including the opening brace:
+
+**Preferred:**
 
 ```swift
 func reticulateSplines(spline: [Double]) -> Bool {
@@ -497,11 +499,13 @@ func reticulateSplines(spline: [Double]) -> Bool {
 }
 ```
 
-For functions with long signatures, add line breaks at appropriate points and add an extra indent on subsequent lines:
+**Not Preferred:**
 
 ```swift
-func reticulateSplines(spline: [Double], adjustmentFactor: Double,
-    translateConstant: Int, comment: String) -> Bool {
+func reticulateSplines(spline: [Double], 
+				 adjustmentFactor: Double,
+				translateConstant: Int, 
+				comment: String) -> Bool {
   // reticulate code goes here
 }
 ```
