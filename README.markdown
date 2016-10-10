@@ -269,9 +269,11 @@ extension ViewController {
 
 ### Unused Code
 
-Unused (dead) code, including Xcode template code and placeholder comments should be removed. An exception is when your tutorial or book instructs the user to use the commented code.
+Unused (dead) code, including Xcode template code and placeholder comments should be removed. No exceptions.
 
 Aspirational methods not directly associated with the tutorial whose implementation simply calls the super class should also be removed. This includes any empty/unused UIApplicationDelegate methods.
+
+Note: Before deleting any code like this, make sure you have committed all of your code. If you are up to date on all of your commits, then deleted code will always exist in git if you ever need to get it back.
 
 **Not Preferred:**
 ```swift
