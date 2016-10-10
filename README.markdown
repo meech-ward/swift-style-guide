@@ -552,15 +552,38 @@ attendeeList.sort { a, b in
 }
 ```
 
-Chained methods using trailing closures should be clear and easy to read in context. Decisions on spacing, line breaks, and when to use named versus anonymous arguments is left to the discretion of the author. Examples:
+Chained methods using trailing closures should be clear and easy to read in context. Use a new line for each new closure, and use as many lines as needed within the closure. Examples:
+
+**Preferred:**
 
 ```swift
-let value = numbers.map { $0 * 2 }.filter { $0 % 3 == 0 }.indexOf(90)
+let evenPositiveSquares = numbers
+    .map{ number in number*number }
+    .filter{ number in
+        let numberIsEven = number % 2 == 0
+        let numberIsPositive = number > 0
+        return numberIsEven && numberIsPositive
+}
+```
 
-let value = numbers
-   .map {$0 * 2}
-   .filter {$0 > 50}
-   .map {$0 + 10}
+**Not Preferred:**
+
+```swift
+ let evenPositiveSquares = numbers.map{ number in number*number }.filter{ number in (number % 2 == 0) && (number > 0) }
+ ```
+
+Never use shorthand notation for closure parameters.
+
+**Preferred:**
+
+```swift
+let numbersDoubled = numbers.map { _, value in value*2 }
+```
+
+**Not Preferred:**
+
+```swift
+let numbersDoubled = numbers.map { $1*2 }
 ```
 
 ## Types
