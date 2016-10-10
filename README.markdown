@@ -588,21 +588,7 @@ let numbersDoubled = numbers.map { $1*2 }
 
 ## Types
 
-Always use Swift's native types when available. Swift offers bridging to Objective-C so you can still use the full set of methods as needed.
-
-**Preferred:**
-```swift
-let width = 120.0                                    // Double
-let widthString = (width as NSNumber).stringValue    // String
-```
-
-**Not Preferred:**
-```swift
-let width: NSNumber = 120.0                          // NSNumber
-let widthString: NSString = width.stringValue        // NSString
-```
-
-In Sprite Kit code, use `CGFloat` if it makes the code more succinct by avoiding too many conversions.
+Always use Swift's native types when available. Use Objective-C types when the framework prefers it, like CoreGraphics and SpriteKit prefer `CGFloat` instead of `Float`.
 
 ### Constants
 
