@@ -23,6 +23,7 @@ Writing Objective-C? Check out our [Objective-C Style Guide](https://github.com/
   * [Minimal Imports](#minimal-imports)
 * [Spacing](#spacing)
 * [Comments](#comments)
+* [Documenting Comments](#documenting-comments)
 * [Classes and Structures](#classes-and-structures)
   * [Use of Self](#use-of-self)
   * [Protocol Conformance](#protocol-conformance)
@@ -370,6 +371,43 @@ func doSomething() {
 	 Log the word Done
 	*/
 	NSLog("Done")
+}
+```
+
+## Documenting Comments
+
+When using comments to generate documention for your code, follow these rules:
+
+* Use `///` for properties, and `/** */` for methods.
+* Use proper grammar including a period `.` at the end of each sentence.
+* Be as detailed and clear as possible.
+* Use [callouts](https://developer.apple.com/library/content/documentation/Xcode/Reference/xcode_markup_formatting_ref/Parameter.html#//apple_ref/doc/uid/TP40016497-CH28-SW1) like `- parameter` wherever possible.
+
+**Preferred:**
+
+```swift
+/// The name of the person.
+var name: String?
+    
+/**
+ Creates a person with the specified name.
+ 
+ - parameter: name The name to give to the new person.
+*/
+init(name: String) {
+}
+```
+
+**Not Preferred:**
+
+```swift
+/** 
+The name of the person
+*/
+var name: String?
+    
+/// Creates a person with the specified name
+init(name: String) {
 }
 ```
 
